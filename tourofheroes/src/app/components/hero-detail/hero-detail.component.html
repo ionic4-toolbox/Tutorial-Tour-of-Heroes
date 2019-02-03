@@ -1,0 +1,15 @@
+<div *ngIf="hero">
+	<h2>{{hero.name | uppercase}} Details</h2>
+	<div><span>id: </span>{{hero.id}}</div>
+	<div>
+		<label>name:
+			<input [(ngModel)]="hero.name" placeholder="name" />
+		</label>
+	</div>
+	<ion-button (click)="goBack()">go back</ion-button>
+	<ion-button (click)="save()">save</ion-button>
+</div>
+
+<div *ngIf="!hero">
+	<h2>No Hero selected</h2>
+</div>

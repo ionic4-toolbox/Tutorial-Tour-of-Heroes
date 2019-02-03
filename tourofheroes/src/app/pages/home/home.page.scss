@@ -1,0 +1,26 @@
+.welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+ion-grid {
+    background-color: gray;
+    padding: 5px;
+	margin: 5px;
+	
+    ion-row {
+        background-color: red;
+        padding: 5px;
+        margin: 5px;
+		vertical-align: middle;
+		
+        ion-col {
+            background-color: blue;
+            padding: 5px;
+            margin: 5px;
+            vertical-align: middle;
+        }
+    }
+}

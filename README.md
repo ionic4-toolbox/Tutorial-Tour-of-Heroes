@@ -1,2 +1,7 @@
-# Tutorial-Tour-of-Heroes
-Tutorial from Angular: Tour of Heroes
+#
+
+## Create Dashboard Page
+
+    ionic generate page pages/dashboard
+	ionic generate page pages/heroes
+	ionic generate page pages/hero-details

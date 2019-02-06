@@ -1,8 +1,0 @@
-{
-  "files.exclude": {
-    "__error": "Not found",
-    "node_modules": true,
-    "e2e": true,
-    ".vscode": true
-  }
-}

@@ -14,25 +14,27 @@ import { InMemoryDataService }  from './services/in-memory-data/in-memory-data.s
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 import { HomePage } from './pages/home/home.page';
 import { ListPage } from './pages/list/list.page';
+import { DashboardPage } from './pages/dashboard/dashboard.page';
+import { HeroesPage } from './pages/heroes/heroes.page';
+import { HeroDetailsPage } from './pages/hero-details/hero-details.page';
 
 
 @NgModule({
 	declarations: [		
 		AppComponent,
-		DashboardComponent,
-		HeroesComponent,
-		HeroDetailComponent,
+		HeroesPage,
+		HeroDetailsPage,
 		MessagesComponent,
 		HeroSearchComponent,
 		HomePage,
-		ListPage
+		ListPage,
+		DashboardPage,
+		HeroesPage,
+		HeroDetailsPage
 	],
 	entryComponents: [],
 	imports: [

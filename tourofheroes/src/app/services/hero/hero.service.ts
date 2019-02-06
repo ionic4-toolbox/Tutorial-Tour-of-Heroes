@@ -18,6 +18,8 @@ export class HeroService {
 
 	private heroesUrl = 'api/heroes';  // URL to web api
 
+	public currentHero: Hero = null;
+
 	constructor(
 		private http: HttpClient,
 		private messageService: MessageService) {
@@ -25,9 +27,10 @@ export class HeroService {
 	}
 
 	getHero(id: number): Observable<Hero> {
-		console.log(this.MODULE + '::getHero | id=', id);
-
 		const url = `${this.heroesUrl}/${id}`;
+		
+		console.log(this.MODULE + '::getHero | id=', id, ' url=', url);
+
 		return this.http.get<Hero>(url).pipe(
 			tap(_ => this.log(`fetched hero id=${id}`)),
 			catchError(this.handleError<Hero>(`getHero id=${id}`))
@@ -61,7 +64,6 @@ export class HeroService {
 		);
 	}
 
-	/** POST: add a new hero to the server */
 	addHero(hero: Hero): Observable<Hero> {
 		console.log(this.MODULE + '::addHero | ');
 
@@ -71,7 +73,6 @@ export class HeroService {
 		);
 	}
 
-	/** DELETE: delete the hero from the server */
 	deleteHero(hero: Hero | number): Observable<Hero> {
 		console.log(this.MODULE + '::deleteHero | ');
 
@@ -97,11 +98,6 @@ export class HeroService {
 	getHeroes(): Observable<Hero[]> {
 		console.log(this.MODULE + '::getHeroes | url=' + this.heroesUrl);
 
-		/*
-		this.messageService.add('HeroService: fetched heroes');
-		return of(HEROES);
-		*/
-
 		return this.http.get<Hero[]>(this.heroesUrl)
 			.pipe(
 				catchError(this.handleError('getHeroes', []))
@@ -112,10 +108,11 @@ export class HeroService {
 		console.log(this.MODULE + '::handleError | ');
 
 		return (error: any): Observable<T> => {
-			console.error(error); 	// TODO: send the error to remote logging infrastructure
-			this.log(`${operation} failed: ${error.message}`); 			// TODO: better job of transforming error for user consumption
+			console.log(this.MODULE + '::handleError | error=', error);
+			console.log(this.MODULE + '::handleError | error=', error.message);
+		
+			this.log(`${operation} failed: ${error.message}`);
 
-			// Let the app keep running by returning an empty result.
 			return of(result as T);
 		};
 	}

@@ -13,7 +13,7 @@ export class MessageService {
 	}
 
 	add(message: string) {
-		console.log(this.MODULE + '::add | ');
+		console.log(this.MODULE + '::add | message=', message);
 
 		this.messages.push(message);
 	}

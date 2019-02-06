@@ -7,7 +7,7 @@ import { Hero } from 'src/app/models/hero';
 	providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
-	private MODULE = "HeroService";
+	private MODULE = "InMemoryDataService";
 
 	constructor() {
 		console.log(this.MODULE+'::constructor | ');
@@ -28,6 +28,9 @@ export class InMemoryDataService implements InMemoryDbService {
 			{ id: 81, name: 'Dr IQ' },
 			{ id: 91, name: 'Magma' }
 		];
+
+		console.log(this.MODULE+'::createDb | ' + heroes.length + ' heroes created');
+
 		return { heroes };
 	}
 

@@ -15,7 +15,7 @@ export class AppComponent {
 	public appPages = [
 		{ title: 'Dashboard', url: '/dashboard', icon: 'grid' },
 		{ title: 'Home', url: '/home', icon: 'home' },
-		{ title: 'List', url: '/list', icon: 'list' }
+		{ title: 'Heroes', url: '/heroes', icon: 'list' }
 	];
 
 	constructor(

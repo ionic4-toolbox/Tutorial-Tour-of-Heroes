@@ -7,12 +7,14 @@ import { HeroService } from 'src/app/services/hero/hero.service';
 
 @Component({
 	selector: 'app-hero-detail',
-	templateUrl: './hero-detail.component.html',
-	styleUrls: ['./hero-detail.component.scss']
+	templateUrl: './hero-details.page.html',
+	styleUrls: ['./hero-details.page.scss']
 })
-export class HeroDetailComponent implements OnInit {
-	private MODULE = "HeroDetailComponent";
+export class HeroDetailsPage implements OnInit {
+	private MODULE = "HeroDetailsPage";
 	hero: Hero;
+
+	ineditmode: boolean = null;
 
 	constructor(
 		private route: ActivatedRoute,
@@ -29,11 +31,17 @@ export class HeroDetailComponent implements OnInit {
 	}
 
 	getHero(): void {
-		console.log(this.MODULE + '::getHero | ');
-
 		const id = +this.route.snapshot.paramMap.get('id');
+		console.log(this.MODULE + '::getHero | id=' + id);
+
 		this.heroService.getHero(id)
-			.subscribe(hero => this.hero = hero);
+			.subscribe(hero => {
+				console.log(this.MODULE + '::getHero | subscribe here=' + hero);
+				this.hero = hero
+			});
+
+		console.log(this.MODULE + '::getHero | DONE');
+
 	}
 
 	goBack(): void {
@@ -43,9 +51,23 @@ export class HeroDetailComponent implements OnInit {
 	}
 
 	save(): void {
-		console.log(this.MODULE + '::sve | ');
+		console.log(this.MODULE + '::save | ');
 
 		this.heroService.updateHero(this.hero)
-		  .subscribe(() => this.goBack());
-	  }
+			.subscribe(() => this.goBack());
+	}
+
+	edit(toggle) {
+		console.log(this.MODULE + '::edit | ');
+
+		if (this.ineditmode == true) {
+		}
+		this.ineditmode = toggle;
+	}
+
+	submit(formValue: any) {
+		console.log(this.MODULE + '::submit | ');
+
+		console.log(formValue);
+	}
 }

@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
 import { HomePage } from './pages/home/home.page';
 import { ListPage } from './pages/list/list.page';
 import { DashboardPage } from './pages/dashboard/dashboard.page';
+import { HeroesPage } from './pages/heroes/heroes.page';
+import { HeroDetailsPage } from './pages/hero-details/hero-details.page';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/home', pathMatch: 'full' },
-	{ path: 'detail/:id', component: HeroDetailComponent },
-	{ path: 'heroes', component: HeroesComponent },
+	{ path: 'dashboard', component: DashboardPage },
+	{ path: 'details', component: HeroDetailsPage },
+	{ path: 'details/:id', component: HeroDetailsPage },
+	{ path: 'heroes', component: HeroesPage },
 	{ path: 'home', component: HomePage },
 	{ path: 'list', component: ListPage },
-	{ path: 'dashboard', component: DashboardPage }
 ];
 
 @NgModule({
